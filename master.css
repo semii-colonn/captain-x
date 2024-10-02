@@ -1,0 +1,590 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../imgs/notjg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    /*  background: linear-gradient(rgba(244, 112, 17, 0.809), rgba(255, 111, 0, 0));*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+
+.navigation a {
+    position: relative;
+    font-size: 1, 1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scale(1);
+}
+
+.navigation .btnlogin-popup {
+    width: 120px;
+    height: 45px;
+    background: linear-gradient(90deg, #ff6600c3, #ffcc00c1, #ff0000c4);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+    border: navy;
+}
+
+.navigation .btnlogin-popup:hover {
+    background: #fff;
+    color: #97d0fb;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+
+}
+
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: rgb(244, 111, 17);
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #162938;
+}
+
+.remember-forgot a {
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: rgb(244, 111, 17);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    color: #b8e0e0aa;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #b8e0e0aa;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+.home {
+    display: inline-block;
+    height: 100hv;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content {
+    position: relative;
+    max-width: 700px;
+
+    margin-left: -240px;
+    margin-bottom: 5rem;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hix {
+    background: linear-gradient(90deg, #ff6600, #ffcc00, #ff0000);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ffffff, #ff6600);
+    /* تدرج مائل للأبيض */
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.home-content p {
+    font-size: 20px;
+    background: linear-gradient(90deg, #ffffff, #e0f7fa);
+    /* التدرج بين الأبيض والأزرق الفاتح جدًا */
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 20px 0 40px;
+}
+
+.custom-paragraph {
+    line-height: 1.5;
+
+}
+
+.home-content .btn-boxx {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+}
+
+.btn-boxx a {
+
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 45px;
+    background: linear-gradient(90deg, #ff6600c3, #ffcc00c1, #ff0000c4);
+    /* تدرج الخلفية */
+    border-radius: 8px;
+    border: navy;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    /* النص يظل أبيض */
+    font-weight: 500;
+    margin-left: 5px;
+    transition: .5s;
+    text-decoration: none;
+    border: 2px solid transparent;
+    /* إزالة لون الحدود وجعلها شفافة */
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    transition: opacity 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.btn-boxx a:hover {
+    background: #fff;
+    color: #97d0fb;
+}
+
+.home {
+    display: inline-block;
+}
+
+.typing {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation:
+        typing 3s, cursor 0.50s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes cursor {
+    from {
+        border-color: #ff6347;
+        /* لون المؤشر */
+    }
+
+    50% {
+        border-color: transparent;
+
+    }
+
+    to {
+        border-color: #ff6347;
+
+    }
+}
+
+.custom-paragraph {
+    line-height: 1.5;
+    font-size: 20px;
+    /* تعديل حجم الخط إذا لزم الأمر */
+}
+
+.man-back {
+    position: absolute;
+    top: 45%;
+    right: 10px;
+    transform: translateY(-55%);
+
+}
+
+.man-back img {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    opacity: 0;
+    animation: fadeIn 5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*planssssssssssssssss*/
+.containerr {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    padding: 2rem 0 3rem;
+    background-color: #686D76;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.headingg {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.price-plan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+}
+
+.price-box {
+
+    background: rgb(34, 34, 34);
+    background: linear-gradient(189deg, rgba(34, 34, 34, 1) 0%, rgba(25, 25, 25, 1) 100%);
+    border-radius: 1rem;
+    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.price-box:hover {
+    transform: scale(1.05);
+    transition: 0, 5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.top-box {
+    padding: 30px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.p-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ff6347;
+}
+
+.single {
+    color: #6FDCE3;
+
+}
+
+.price {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: #ffffff;
+}
+
+.price span {
+    font-size: 1.075rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.btnn {
+    color: #ffffff;
+    background: #6FDCE3;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.btnn:hover {
+    transition: 0.3s all ease;
+}
+
+.single-btnn:hover {
+    background: #6FDCE3;
+}
+
+.top-box p {
+    font-size: 0.875rem;
+    color: #E1D7B7;
+    text-align: center;
+}
+
+.bottom-box {
+    padding: 30px;
+}
+
+.p-box {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ff6347ae;
+}
+
+.p-box .bx {
+    font-size: 21px;
+    color: #ff6347ae;
+}
+
+.p-box p {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+.premium {
+    color: #E1D7B7;
+}
+
+.premium-btnn {
+    background: #E1D7B7;
+}
+
+.premium-btnn:hover {
+    background: #00fff79d;
+}
+
+.besiness {
+    color: #686D76;
+}
+
+.besiness-btnn {
+    background: #686D76;
+}
+
+.besiness-btnn:hover {
+    background: #2fff00a5;
+}
+
+/*@media (max-width: 1050px) {
+    .price-plan {
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px) {
+    .price-plan {
+        grid-template-columns: 1fr;
+    }
+}*/
